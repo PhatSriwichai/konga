@@ -1,6 +1,6 @@
 {
   "name": "kongadmin",
-  "version": "0.10.6",
+  "version": "0.11.2",
   "description": "Kong admin GUI",
   "keywords": [
     "sails.js",
@@ -36,13 +36,14 @@
     "grunt-sails-linker": "~0.10.1",
     "grunt-sass": "^2.0.0",
     "grunt-sync": "0.5.2",
+    "hoek": "^4.2.1",
     "include-all": "^1.0.0",
     "ip": "^1.1.5",
     "jsonwebtoken": "5.4.1",
     "lodash": "3.10.1",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
-    "moment": "^2.18.1",
+    "moment": "^2.21.0",
     "mongodb": "^2.2.11",
     "mysql": "^2.11.1",
     "node-cron": "^1.1.3",
@@ -60,8 +61,8 @@
     "sails-mysql": "^0.11.5",
     "sails-postgresql": "^0.11.4",
     "sails-sqlserver": "^0.10.8",
-    "socket.io-redis": "~1.0.0",
     "sendmail": "^1.1.1",
+    "socket.io-redis": "~1.0.0",
     "ua-parser": "0.3.5",
     "unirest": "^0.5.1",
     "validator": "4.2.1"
@@ -78,7 +79,8 @@
     "production": "node --harmony app.js --prod",
     "debug": "node debug app.js",
     "test": "mocha",
-    "bower-deps": "bower --allow-root install"
+    "bower-deps": "bower --allow-root install",
+    "prepare": "node ./bin/konga.js prepare"
   },
   "main": "app.js",
   "repository": {

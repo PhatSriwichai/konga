@@ -13,6 +13,7 @@
     'frontend.core',
     'frontend.dashboard',
     'frontend.settings',
+    'frontend.netdataConnections',
     'frontend.upstreams',
     'frontend.info',
     'frontend.plugins',
@@ -22,7 +23,10 @@
     'frontend.apis',
     'frontend.connections',
     'frontend.snapshots',
-    'frontend.cluster'
+    'frontend.cluster',
+    'frontend.healthchecks',
+    'frontend.services',
+    'frontend.routes'
 
   ]);
 

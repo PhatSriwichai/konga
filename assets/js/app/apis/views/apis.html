@@ -22,11 +22,17 @@
 <!--</div>-->
 <div class="row actions">
     <div class="col-md-12">
-        <a  class="btn btn-primary pull-left"
+        <a  class="btn btn-primary pull-left margin-right"
             ng-if="user.hasPermission($state.name.split('.')[0],'create')"
             ng-click="openAddApiModal()">
             <i class="mdi mdi-plus"></i>
             Add New Api
+        </a>
+        <a  class="btn btn-warning pull-left"
+            ng-if="user.admin"
+            ng-click="deleteApiHealthChecks()">
+            <i class="mdi mdi-heart-broken"></i>
+            reset health checks
         </a>
         <list-search
                 class="pull-right"
@@ -114,7 +120,7 @@
                         <!--</a>-->
                     <!--</td>-->
                     <td ng-if="user.hasPermission($state.name.split('.')[0],'delete')">
-                        <button type="button" ng-click="deleteItem($index,api)" class="btn btn-danger btn-link">
+                        <button type="button" ng-click="onDeleteApi($index,api)" class="btn btn-danger btn-link">
                             <i class="mdi mdi-delete"></i>
                             Delete
                         </button>

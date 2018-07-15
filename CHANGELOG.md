@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+
+## [0.11.2](https://github.com/pantsel/konga/releases/tag/0.11.2) - 15-06-2018
+* Various Fixes.
+
+## [0.11.0](https://github.com/pantsel/konga/releases/tag/0.11.0) - 08-06-2018
+* **[Compatibility]** Services and Routes support (Kong 0.13+).
+* **[Fix [#217](https://github.com/pantsel/konga/issues/217)]** Api health checks are now deleted as they should when deleting an api.
+* **[Enhancement]** Added the ability to set description and tags to Kong's services
+for better management.
+* **[Enhancement]** In plugin management forms, all text inputs are changed to textareas
+so that custom plugins can be better integrated [#189](https://github.com/pantsel/konga/issues/189).
+* **[Enhancement]** Database integrations can now be setup by only using the connection url as well as
+defining connection attributes separately.
+* Various other fixes and improvements.
+
+> **This update introduces changes in db schema. If you have integrated Konga with a database other 
+than mongoDB, you will have to apply the migrations as described in README.md**
+
 ## [0.10.4](https://github.com/pantsel/konga/releases/tag/0.10.4) - 08-03-2018
 
 * Better assets caching

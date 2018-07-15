@@ -9,17 +9,22 @@
   angular.module('frontend.plugins')
     .controller('AddPluginController', [
       '_', '$scope', '$rootScope', '$log', '$state', 'ListConfig', 'ApiService',
-      'MessageService', 'ConsumerModel', 'SocketHelperService', 'PluginHelperService',
-      'KongPluginsService', '$uibModalInstance', 'PluginsService', '_pluginName', '_schema', '_api', '_consumer',
+      'MessageService', 'ConsumerModel', 'ServiceService', 'SocketHelperService', 'PluginHelperService',
+      'KongPluginsService', '$uibModalInstance', 'PluginsService', '_pluginName', '_schema', '_context',
       function controller(_, $scope, $rootScope, $log, $state, ListConfig, ApiService,
-                          MessageService, ConsumerModel, SocketHelperService, PluginHelperService,
-                          KongPluginsService, $uibModalInstance, PluginsService, _pluginName, _schema, _api, _consumer) {
+                          MessageService, ConsumerModel, ServiceService, SocketHelperService, PluginHelperService,
+                          KongPluginsService, $uibModalInstance, PluginsService, _pluginName, _schema,_context) {
 
 
-        $scope.api = _api
-        $scope.consumer = _consumer;
+        if(_.isArray(_context)) {
+          _context.forEach(function (ctx) {
+            $scope[ctx.name] = ctx.data;
+          })
+        }else if(_context){
+          $scope[_context.name] = _context.data;
+        }
+
         $scope.context = 'create';
-        $log.debug("API", $scope.api)
 
         //var pluginOptions = new KongPluginsService().pluginOptions()
         var options = new KongPluginsService().pluginOptions(_pluginName)
@@ -91,6 +96,16 @@
           // Add api_id to request_data if defined
           if ($scope.api) {
             request_data.api_id = $scope.api.id;
+          }
+
+          // Add service_id to request_data if defined
+          if ($scope.service) {
+            request_data.service_id = $scope.service.id;
+          }
+
+          // Add route_id to request_data if defined
+          if ($scope.route) {
+            request_data.route_id = $scope.route.id;
           }
 
           // If a consumer is defined, add consumer_id to request data
